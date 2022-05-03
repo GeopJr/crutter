@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.3.2">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="crutter">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="crutter">
+  <title>crutter main</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          crutter
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="crutter/Crutter" data-name="crutter">
+      <a href="Crutter.html">Crutter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crutter/Crutter/Widget" data-name="crutter::widget">
+      <a href="Crutter/Widget.html">Widget</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 align="center">crutter</h1>
+<h4 align="center">Create Flutter Widgets from Crystal.</h4>
+<p align="center">
+  <br />
+    <a href="https://github.com/GeopJr/crutter/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.1-08589c.svg?style=for-the-badge&labelColor=44d1fd" alt="Code Of Conduct" /></a>
+    <a href="https://github.com/GeopJr/crutter/blob/main/LICENSE"><img src="https://img.shields.io/badge/LICENSE-BSD--2--Clause-08589c.svg?style=for-the-badge&labelColor=44d1fd" alt="BSD-2-Clause" /></a>
+    <a href="https://github.com/GeopJr/crutter/actions"><img src="https://img.shields.io/github/workflow/status/geopjr/crutter/Specs%20&%20Lint/main?labelColor=44d1fd&style=for-the-badge" alt="ci action status" /></a>
+</p>
+<h2><a id="what-is-crutter" class="anchor" href="#what-is-crutter">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>What is crutter?</h2>
+<p>As of now crutter is a POC.</p>
+<p>Crystal 1.4.0 introduced compiling to WASM. Dart has <em>minimal</em> support for consuming WASM right now.</p>
+<p>crutter generates widgets in JSON format that are to be consumed by <a href="https://github.com/peiffer-innovations/json_dynamic_widget">json_dynamic_widget</a>, a Dart package that creates widgets dynamically from JSON.</p>
+<p>json_dynamic_widget has a lot of features like functions that exapand in Dart.</p>
+<p>See <a href="./spec/"><code>./spec/</code></a>.</p>
+<h2><a id="why-is-it-a-poc" class="anchor" href="#why-is-it-a-poc">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Why is it a POC?</h2>
+<p>Dart's WASM support is <em>very</em> alpha. It uses wasmer and it's messy between platforms and SDK versions.</p>
+<p>Even after getting over those, it doesn't support all Crystal WASM functions (and honestly I'm unsure if it ever will).</p>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<ol>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  crutter:
+    github: GeopJr/crutter</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<p>You can find crutter's docs on the sidebar.</p>
+<p>The following code is just a concept, it's untested and depends on assumptions.</p>
+<p>WASM:</p>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;crutter&quot;</span>
+
+<span class="k">def</span> <span class="m">create_text</span>(title : <span class="t">String</span>)
+  center <span class="o">=</span> <span class="t">Crutter</span><span class="t">::</span><span class="t">Widget</span>.<span class="k">new</span>(<span class="s">&quot;center&quot;</span>)
+  text <span class="o">=</span> <span class="t">Crutter</span><span class="t">::</span><span class="t">Widget</span>.<span class="k">new</span>(<span class="s">&quot;text&quot;</span>)
+
+  text.args[<span class="s">&quot;text&quot;</span>] <span class="o">=</span> title
+  center.children <span class="o">&lt;&lt;</span> text
+
+  center.to_json <span class="c">#=&gt; {&quot;type&quot;:&quot;center&quot;,&quot;child&quot;:{&quot;type&quot;:&quot;text&quot;,&quot;args&quot;:{&quot;text&quot;:&quot;#{title}&quot;}}}</span>
+<span class="k">end</span></code></pre>
+<p>Dart:</p>
+<pre><code class="language-dart">import 'package:flutter/material.dart';
+import 'package:flutter_wasm/flutter_wasm.dart';
+import 'package:json_dynamic_widget/json_dynamic_widget.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  ByteData bytes = await rootBundle.load('crystal/main-final.wasm');
+  final data = bytes.buffer.asUint8List();
+  final mod = WasmModule(data);
+  final inst = mod.builder().build();
+  final create_text = inst.lookupFunction('create_text');
+
+  final text_widget = create_text(&quot;hello world&quot;)
+  final json_data = json.decode(text_widget);
+
+  final json_widget_data = JsonWidgetData.fromDynamic(
+        json_data
+  );
+}</code></pre>
+<blockquote>
+<p>Unsure whether the above even compiles but gets the point across:</p>
+</blockquote>
+<blockquote>
+<p>Dart --create_text(&quot;hello world&quot;)--&gt; Crystal (WASM) --widget--&gt; Dart</p>
+</blockquote>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Read the <a href="https://github.com/GeopJr/crutter/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li>Fork it (<a href="https://github.com/GeopJr/crutter/fork">https://github.com/GeopJr/crutter/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+</div>
+</body>
+</html>
