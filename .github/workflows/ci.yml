@@ -1,5 +1,5 @@
 name: Specs & Lint
-on: [push, pull_request]
+on: [push, workflow_dispatch]
 jobs:
   ci:
     runs-on: ubuntu-latest
