@@ -1,0 +1,9 @@
+name: crutter
+version: 1.0.0
+
+authors:
+  - Evangelos Paterakis <evan@geopjr.dev>
+
+crystal: 1.4.1
+
+license: BSD-2-Clause
